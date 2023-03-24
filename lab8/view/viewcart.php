@@ -50,11 +50,10 @@
                             $i++;
                         }
                         echo '<tr>
-                    <td colspan="5"></td>
+                    <td colspan="5">tổng đơn hàng</td>
                     <td>' . $tong . '</td>
                     <td></td>
-                    <td></td>
-                    <td></td>
+                 
                     </tr>';
                         echo '</table>';
                     }
@@ -69,25 +68,26 @@
                   <form action="index.php?act=thanhtoan" method="post">
                     <input type="hidden" name="tongdonhang" value="<?php echo $tong ?>">
                       <table>
+               
                           <tr>
                            
-                              <td><input type="text" name="name" placeholder="NHẬP HỌ TÊN"></td>
+                              <td><input type="text" name="name" value="<?php echo  $_SESSION['username']  ?>" placeholder="NHẬP HỌ TÊN" required></td>
                           </tr>
                           <tr>
-                              <td><input type="text" name="address" placeholder="NHẬP ĐỊA CHỈ"></td>
+                              <td><input type="text" name="address"  value="<?php echo  $_SESSION['address']  ?>" placeholder="NHẬP ĐỊA CHỈ" required></td>
                           </tr>
                           <tr>
-                              <td><input type="text" name="email" placeholder="NHẬP EMAIL"></td>
+                              <td><input type="text" name="email"  value="<?php echo  $_SESSION['email']  ?>"  placeholder="NHẬP EMAIL" required></td>
                           </tr>
                           <tr>
-                              <td><input type="text" name="tel" placeholder="NHẬP SỐ ĐIỆN THOẠI"></td>
+                              <td><input type="text" name="tel" placeholder="NHẬP SỐ ĐIỆN THOẠI" required></td>
                           </tr>
                           <tr>
                               <td>PHƯƠNG THỨC THANH TOÁN <br>
-                                  <input type="radio" name="pttt" value="1"> thanh toán khi nhận hàng <br>
-                                  <input type="radio" name="pttt" value="2"> thanh toán chuyển khoản <br>
+                                  <input type="radio" name="pttt" value="1" required> thanh toán khi nhận hàng <br>
+                                  <!-- <input type="radio" name="pttt" value="2"> thanh toán chuyển khoản <br>
                                   <input type="radio" name="pttt" value="3"> thanh toán ví momo <br>
-                                  <input type="radio" name="pttt" value="4"> thanh toán online <br> 
+                                  <input type="radio" name="pttt" value="4"> thanh toán online <br>  -->
 
 
                               </td>

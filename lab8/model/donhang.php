@@ -33,6 +33,27 @@ function getorderinfo($iddh){
     $kq=$stmt->fetchAll();
     return $kq;
 }
+// function get_ttdh($n){
+//     switch ($n) {
+//         case '1':
+//            $tt="đơn hàng mới";
+//             break;
+//             case '2':
+//                 $tt="đơn hàng đang xử lý";
+//                  break;
+//                  case '1':
+//                     $tt="đơn hàng đang giao";
+//                      break;
+//                      case '1':
+//                         $tt="đơn hàng hoàn tất";
+//                          break;
+        
+//         default:
+//         $tt="đơn hàng mới";
+//             break;
+//     }
+//     return $tt;
+// }
 
 // function getall_sp(){
 //     $conn=connectdb();

@@ -5,6 +5,7 @@
 include "../model/pdo.php";
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
+include "../model/taikhoan.php";
         include "header.php";
         if (isset($_GET['act'])) {
             $act = $_GET['act'];
@@ -138,6 +139,21 @@ include "../model/sanpham.php";
                          if(isset($_SESSION['role']))  unset($_SESSION['role']);
                            header('location:login.php');
                             break;
+
+                            case 'taikhoan':
+
+                                $listtaikhoan = loadall_taikhoan();
+                                include "taikhoan/list.php";
+                                break;
+
+                                case 'xoatk':
+                                    if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                                        $sql = "delete from user where id=" . $_GET['id'];
+                                        pdo_execute($sql);
+                                    }
+                                    $listtaikhoan = loadall_taikhoan();
+                                    include "taikhoan/list.php";
+                                    break;
                 
                 default:
                 include "home.php";

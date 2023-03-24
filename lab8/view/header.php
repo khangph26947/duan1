@@ -59,8 +59,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <input type="checkbox" id="drop" />
                     <ul class="menu mt-2">
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="about.php">About</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="../about.php">About</a></li>
+                        <li><a href="blog.php">Blog</a></li>
                        <?php
                        if(isset($_SESSION['username'])&&($_SESSION['username']!="")){
 echo ' <li><a href="index.php?act=userinfo">'.$_SESSION['username'].'</a></li>
@@ -73,7 +73,7 @@ echo ' <li><a href="index.php?act=userinfo">'.$_SESSION['username'].'</a></li>
                         
                         <li><a href="index.php?act=dangnhap">Đăng Nhập</a></li>
                         <?php }?>
-
+                        <!-- <li><a href="index.php?act=dangky">Đăng Ký</a></li> -->
                         <li><a href="index.php?act=addcart">Gio Hàng</a></li>
                        
                     </ul>

@@ -95,6 +95,7 @@
                               switch ($orderinfo[0]['pttt']) {
                                 case '1':
                                  $txtmess="thanh toán khi nhận hàng";
+                                 echo 'thanh toán khi nhận hàng';
                                     break;
                                     case '2':
                                         $txtmess="thanh toán chuyển khoản";

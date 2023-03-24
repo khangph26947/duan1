@@ -6,6 +6,7 @@ ob_start();
 
 include "model/pdo.php";
 include "model/danhmuc.php";
+include "model/taikhoan.php";
 include "model/donhang.php";
 include "global.php";
 include "model/sanpham.php";
@@ -23,14 +24,16 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 unset($_SESSION['role']);
             unset($_SESSION['iduser']);
             unset($_SESSION['username']);
+            unset($_SESSION['address']);
+            unset($_SESSION['email']);
             header('location:index.php');
             break;
         case 'about':
             include 'view/about.php';
             break;
-        case 'dangky':
-            include 'view/dangky.php';
-            break;
+        // case 'dangky':
+        //     include 'view/dangky.php';
+        //     break;
         case 'dangnhap':
             include 'view/dangnhap.php';
             break;
@@ -48,6 +51,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     $_SESSION['role'] = $role;
                     $_SESSION['iduser'] = $kq[0]['id'];
                     $_SESSION['username'] = $kq[0]['user'];
+                    $_SESSION['address'] = $kq[0]['address'];
+                    $_SESSION['email'] = $kq[0]['email'];
                     header('location:index.php');
                     break;
                 }
@@ -155,6 +160,14 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     $tel=$_POST['tel'];
                     $pttt=$_POST['pttt'];
                     $madh="KT".rand(0,999999);
+                    // if($name ==""){
+                    //     echo "bạn cần nhập user";
+                    // }
+                    // if($address==""){
+                    //     echo "bạn cần nhập địa chỉ";
+                    // }
+
+                              
                     //add đơn hàng
                     //và trả về một iddh
                     
@@ -172,6 +185,55 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 }
                 include 'view/donhang.php';
                 break;
+
+
+
+
+
+                case 'edit_taikhoan':
+                    if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
+                        $user = $_POST['user'];
+                        $pass = $_POST['pass'];
+                        $email = $_POST['email'];
+                        $address = $_POST['address'];
+                    
+                        $role = $_POST['role'];
+                        $id = $_POST['id'];
+                        update_taikhoan($id, $user, $pass, $email, $address, $role);
+                        $_SESSION['user'] = checkuser1($user, $pass);
+                        header('location:index.php?act=edit_taikhoan');
+                        // $thongbao="đã đăng nhập thành công";
+        
+                    }
+                    include "view/taikhoan/edit_taikhoan.php";
+                    break;
+        
+                case 'dangky':
+                    if (isset($_POST['dangky']) && ($_POST['dangky'])) {
+                        $email = $_POST['email'];
+                        $user = $_POST['user'];
+                        $pass = $_POST['pass'];
+                        $address = $_POST['address'];
+                        insert_taikhoan($email,$user,$pass,$address);
+                        $thongbao = "đã đăng ký thành công.
+                                   Vui lòng đăng nhập để thực hiện chức 
+                                   năng bình luận hoặc đặt hàng";
+                    }
+                    include "view/taikhoan/dangky.php";
+                    break;
+                case 'quenmk':
+                    if (isset($_POST['guiemail']) && ($_POST['guiemail'])) {
+        
+                        $email = $_POST['email'];
+                        $checkemail = checkemail($email);
+                        if (is_array($checkemail)) {
+                            $thongbao = "Mật Khẩu Cùa Bạn Là:" . $checkemail['pass'];
+                        } else {
+                            $thongbao = "Email Này Không Tồn Tại";
+                        }
+                    }
+                    include "view/taikhoan/quenmk.php";
+                    break;
 
         default:
             include 'view/home.php';
