@@ -70,8 +70,18 @@ echo ' <li><a href="index.php?act=userinfo">'.$_SESSION['username'].'</a></li>
                        
                        ?>
                         <li><a href="index.php?act=dangky">Đăng Ký</a></li>
-                        
-                        <li><a href="index.php?act=dangnhap">Đăng Nhập</a></li>
+                        <li>
+                            <!-- First Tier Drop Down -->
+                            <label for="drop-2" class="toggle">Drop Down <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+                            <a href="index.php?act=dangnhap">Đăng Nhập <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                            <input type="checkbox" id="drop-2" />
+                            <ul>
+                            <li><a href="index.php?act=dangnhap">Đăng Nhập</a></li>
+                                <!-- <li><a href="index.php?act=edit_taikhoan">Cập Nhật Tài Khoản</a></li> -->
+                                <li><a href="index.php?act=quenmk">Lấy Lại Mật Khẩu</a></li>
+                            </ul>
+                        </li>
+                        <!-- <li><a href="index.php?act=dangnhap">Đăng Nhập</a></li> -->
                         <?php }?>
                         <!-- <li><a href="index.php?act=dangky">Đăng Ký</a></li> -->
                         <li><a href="index.php?act=addcart">Gio Hàng</a></li>

@@ -18,8 +18,8 @@
                     if ((isset($_SESSION['iddh'])) && ($_SESSION['iddh']>0)){
                     $getshowcart=getshowcart($_SESSION['iddh']);
                     if ((isset($getshowcart)) && (count($getshowcart) > 0)) {
-                        echo '<table>
-                    <tr>
+                        echo '<table style="width:110%; max-width:120%;text-align:center; font-size:13px; ">
+                    <tr style="border:1px solid black">
                     <th>stt</th>
                     <th>ténp</th>
                     <th>hinh</th>
@@ -37,7 +37,7 @@
                             $tt = $item['soluong'] * $item['dongia'];
                             $tong += $tt;
                             echo '
-                       <tr>
+                       <tr style="border:1px solid black">
                        <td>' . ($i + 1) . '</td>
                        <td>' . $item['tensp'] . '</td>
                         <td>  <img src="'.$item['img'].'"width=80></td>
@@ -67,7 +67,7 @@
               </div>
              
              
-              <div class="col-md-4 contact-left-content">
+              <div class="col-md-4 contact-left-content" style="padding-left: 100px;">
                   <!-- right -->
                   <?php
                     if ((isset($_SESSION['iddh'])) && ($_SESSION['iddh']>0)){

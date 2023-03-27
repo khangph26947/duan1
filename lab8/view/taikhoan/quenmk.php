@@ -1,4 +1,4 @@
-<div class="row mb ">
+<!-- <div class="row mb ">
     <div class="boxtrai mr ">
     <div class="row mb ">
    
@@ -34,4 +34,46 @@
     </div>
 
    
-</div>
+</div> -->
+<form action="index.php?act=quenmk" method="post">
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    
+    <label class="form-label" for="form2Example1">Email address</label> <br>
+    <input type="email" name="email" id="form2Example1" class="form-control" />
+  </div>
+
+  
+
+ 
+  <!-- Submit button -->
+  <input type="submit" name="guiemail" value="Sing in" class="btn btn-primary btn-block mb-4"></input>
+
+  <!-- Register buttons -->
+  <?php 
+   if(isset($thongbao)&&($thongbao!="")){
+    echo $thongbao;
+   }
+  
+  
+   ?>
+  <div class="text-center">
+    <p>Not a member? <a href="#!">Register</a></p>
+    <p>or sign up with:</p>
+    <button type="button" class="btn btn-link btn-floating mx-1">
+      <i class="fab fa-facebook-f"></i>
+    </button>
+
+    <button type="button" class="btn btn-link btn-floating mx-1">
+      <i class="fab fa-google"></i>
+    </button>
+
+    <button type="button" class="btn btn-link btn-floating mx-1">
+      <i class="fab fa-twitter"></i>
+    </button>
+
+    <button type="button" class="btn btn-link btn-floating mx-1">
+      <i class="fab fa-github"></i>
+    </button>
+  </div>
+</form>
