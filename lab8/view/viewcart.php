@@ -26,6 +26,7 @@
                     <th>hinh</th>
                     <th>don gia</th>
                     <th>so luong</th>
+                    <th>màu sắc</th>
                     <th>thanh tien</th>
                     <th>hanh dong</th>
                     </tr>
@@ -42,10 +43,11 @@
                        <tr style="border:1px solid black">
                        <td>' . ($i + 1) . '</td>
                        <td>' . $item[1] . '</td>
-                       <td>  <img src="'.$item[2].'"width=80></td>
+                       <td>  <img src="./upload./'.$item[2].'"width=80></td>
                       
                        <td>' . $item[3] . '</td>
                        <td>' . $item[4] . '</td>
+                       <td>' . $item[5] . '</td>
                        <td>' . $tt . '</td>
                        <td> <button type="button" class="btn btn-primary" style="border-radius:20px;">
                        <a href="index.php?act=delcart&i=' . $i . '"  style="color:white;">Xóa</a>

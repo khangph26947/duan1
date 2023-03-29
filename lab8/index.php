@@ -1,5 +1,7 @@
 
 <?php
+   
+
 session_start();
 if (!isset($_SESSION['giohang'])) $_SESSION['giohang'] = [];
 ob_start();
@@ -12,6 +14,22 @@ include "global.php";
 include "model/sanpham.php";
 include "model/user.php";
 include 'view/header.php';
+
+include "model/PHPMailer-master/src/PHPMailer.php";
+include "model/PHPMailer-master/src/Exception.php";
+//  include "model/PHPMailer-master/src/POP3.php";
+ include "model/PHPMailer-master/src/SMTP.php";
+
+// use PHPMailer\P;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+$mail = new PHPMailer(true);
+
+
+
+
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\Exception;
 $spnew = loadall_sanpham_home();
 $dsdm = loadall_danhmuc();
 $dstop10 = loadall_sanpham_top10();
@@ -102,11 +120,13 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $name = $_POST['name'];
                 $img = $_POST['img'];
                 $price = $_POST['price'];
+                $value = $_POST['value'];
                 if(isset($_POST['sl'])&&($_POST['sl']>0)){
                     $sl=$_POST['sl'];
                 }else{
                     $sl=1;
                 }
+               
                
                 $fg=0;
                 //kiểm tra sản phẩm có tồn tại trong giỏ hang hay không
@@ -115,7 +135,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 foreach ( $_SESSION['giohang'] as $item) {
                    if($item[1]=== $name){
                     $slnew=$sl+$item[4];
-                    $_SESSION['giohang'][$i][4]=$slnew;
+                    $_SESSION['giohang'][$i][5]=$slnew;
                     $fg=1;
                     break;
                    }
@@ -123,7 +143,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 }
                 //khởi tạo một mảng con
                 if($fg==0){
-                    $item = array($id, $name, $img, $price,$sl);
+                    $item = array($id, $name, $img, $price,$sl,$value);
                     $_SESSION['giohang'][]=$item;
                 }
                
@@ -160,26 +180,61 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     $tel=$_POST['tel'];
                     $pttt=$_POST['pttt'];
                     $madh="KT".rand(0,999999);
-                    // if($name ==""){
-                    //     echo "bạn cần nhập user";
-                    // }
-                    // if($address==""){
-                    //     echo "bạn cần nhập địa chỉ";
-                    // }
 
-                              
-                    //add đơn hàng
-                    //và trả về một iddh
+                    try {
+                        // Server settings
+                        $mail->CharSet = "UTF-8";
+                        $mail->Encoding = 'base64';
+                        // $mail->SMTPDebug = 0;                                 // bật tính năng gửi success or faild thì vẫn show thông tin mail để ta cấu hình
+                        $mail->isSMTP();                                      // Set mailer to use SMTP
+                        $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+                        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                        $mail->Username = 'duckhangnguyen842003@gmail.com';                 // SMTP username
+                        $mail->Password = 'ufgrnshcpzzqarjq';                           // SMTP password
+                        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, ssl also accepted
+                        $mail->Port = 587;                                    // TCP port to connect to
                     
+                        //Recipients
+                        $mail->setFrom('duckhangnguyen842003@gmail.com', 'shop thời trang');
+                        $mail->addAddress($email, $name );   
+                           // Name is optional
+                        // $mail->addCC('phamngockhanh29703@gmail.com');
+                    
+                        //Content
+                        $mail->isHTML(true);                                  // Set email format to HTML
+                        $mail->Subject = 'bạn đã đặt hàng thành công';
+    
+                    
+                        $body = 'new content';
+                        // $body .= '<p>Xin chào,</p>' ;
+                       
+                       
+                        // $body .= '<p>Nếu bạn đã yêu cầu đặt lại mật khẩu, hãy ấn vào <a href="change_passowrd.php"><h3 style="color: green;">tại đây</h3></a> để tạo mật khẩu mới để vào tài khoản XOSS Shop của bạn.</p>';
+                        // $body .= '<p>Nếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua email này.</p>';
+                        // $body .= 'Nếu bạn gặp phải bất cứ vấn đề nào khi đăng nhập vào tài khoản XOSS Shop, vui lòng gửi mail đến địa chỉ: hungdang02042003@gmail.com</pre>';
+                        $body .= '<p>Trân trọng.</p>';
+                    
+                        // $mail->Body    = 'Mat khau moi cua ban la: ' . $forget_password;
+                        $mail->Body = $body;
+                    
+                        $mail->send();
+                        echo '';
+                    } catch (Exception $e) {
+                        echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+                    } 
+                  
                     $iddh=taodonhang($madh,$tongdonhang,$pttt,$name,$address,$email,$tel);
                    $_SESSION['iddh']=$iddh;
                     if(isset($_SESSION['giohang'])&&(count($_SESSION['giohang'])>0)){
                         foreach ($_SESSION['giohang'] as $item) {
-                           addtocart($iddh,$item[0],$item[1],$item[2],$item[3],$item[4]);
-                        }
+                           addtocart($iddh,$item[0],$item[1],$item[2],$item[3],$item[4],$item[5]);
+                        
                         unset($_SESSION['giohang']);
                         
                     }
+                }
+             
+          
   
                    
                 }

@@ -6,11 +6,38 @@ include "../model/pdo.php";
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
 include "../model/taikhoan.php";
-        include "header.php";
+include "../model/donhang.php";
+include "../model/binhluan.php";
+include "header.php";
         if (isset($_GET['act'])) {
             $act = $_GET['act'];
             switch ($act) {
+
+                case 'donhang':
+                    $listdh = loadall_donhang(0);
+                    include "donhang/listbill.php";
+                    break;
+                case 'xoadh':
+                    if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                        delete_donhang($_GET['id']);
+                    }
+                    $listdh = xoadonhang();
+                    include "donhang/listbill.php";
+                    break;
+
+                case 'dsbl':
+                    $listbinhluan = loadall_binhluan(0);
+                    include "binhluan/list.php";
+                    break;
+                case 'xoabl':
+                    if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                        delete_binhluan($_GET['id']);
+                    }
+                    $listbinhluan = xoabinhluan();
+                    include "binhluan/list.php";
+                    break;
                 case 'adddm':
+
                     if (isset($_POST['themmoi']) && ($_POST['themmoi'])) {
                         $tenloai = $_POST['tenloai'];
                         insert_danhmuc($tenloai);

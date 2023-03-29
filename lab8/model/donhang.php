@@ -7,10 +7,10 @@ function taodonhang($madh,$tongdonhang,$pttt,$name,$address,$email,$tel){
     $last_id = $connect->lastInsertId();
     return $last_id;
 }
-function addtocart($iddh,$idpro,$tensp,$img,$dongia,$soluong){
+function addtocart($iddh,$idpro,$tensp,$img,$dongia,$soluong,$value){
     $connect=pdo_get_connection();
-    $sql="insert into card(iddh,idpro,tensp,img,dongia,soluong) 
-    values('".$iddh."','".$idpro."','".$tensp."','".$img."','".$dongia."','".$soluong."')";
+    $sql="insert into card(iddh,idpro,tensp,img,dongia,soluong,value) 
+    values('".$iddh."','".$idpro."','".$tensp."','".$img."','".$dongia."','".$soluong."','".$value."')";
    $connect->exec($sql);
 
 }
@@ -33,6 +33,33 @@ function getorderinfo($iddh){
     $kq=$stmt->fetchAll();
     return $kq;
 }
+function loadall_donhang($iduser)
+{
+    $sql = "SELECT * FROM orderby where 1";
+    if ($iduser > 0) {
+        $sql .= " WHERE iduser=" . $iduser;
+    }
+    $sql .= " ORDER BY id DESC";
+    $listdh = pdo_query($sql);
+    return $listdh;
+}
+// function loadall_donhang(){
+//     $sql="select*from orderby order by id desc";
+//     $listdh=pdo_query($sql);
+//     return $listdh;
+// }
+
+// function delete_donhang($id){
+//     $sql="delete from orderby where id=".$id;
+//    pdo_execute($sql);
+// }
+
+function xoadonhang(){
+    $sql="select*from orderby order by id desc";
+    $listdh=pdo_query($sql);
+    return $listdh;
+}
+
 // function get_ttdh($n){
 //     switch ($n) {
 //         case '1':

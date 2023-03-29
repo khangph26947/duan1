@@ -25,6 +25,7 @@
                     <th>hinh</th>
                     <th>dongia</th>
                     <th>soluong</th>
+                    <th>màu sắc</th>
                     <th>thanhtien</th>
               
                     </tr>
@@ -40,9 +41,10 @@
                        <tr style="border:1px solid black">
                        <td>' . ($i + 1) . '</td>
                        <td>' . $item['tensp'] . '</td>
-                        <td>  <img src="'.$item['img'].'"width=80></td>
+                        <td>  <img src="./upload./'.$item['img'].'"width=80></td>
                        <td>' . $item['dongia'] . '</td>
                        <td>' . $item['soluong'] . '</td>
+                       <td>' . $item['value'] . '</td>
                        <td>' . $tt . '</td>
                     
                        </tr>
@@ -52,6 +54,7 @@
                         echo '<tr>
                     <td colspan="5"></td>
                     <td>' . $tong . '</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>

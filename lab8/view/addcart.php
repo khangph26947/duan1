@@ -7,9 +7,11 @@ if (isset($_POST['addtocart']) && ($_POST['addtocart'])) {
     $tensp = $_POST['tensp'];
     $img = $_POST['img'];
     $gia = $_POST['gia'];
+    $value=$_POST['value'];
     $sl  =1;
+   
     // tạo mãn
-    $sp = array($id, $tensp,$img,$gia,$sl);
+    $sp = array($id, $tensp,$img,$gia,$sl,$value);
     // echo var_dump($objuser);
     // lưu seesion
     array_push($_SESSION['cart'],$sp);
