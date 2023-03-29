@@ -135,7 +135,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 foreach ( $_SESSION['giohang'] as $item) {
                    if($item[1]=== $name){
                     $slnew=$sl+$item[4];
-                    $_SESSION['giohang'][$i][5]=$slnew;
+                    $_SESSION['giohang'][$i][4]=$slnew;
                     $fg=1;
                     break;
                    }
@@ -202,10 +202,10 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     
                         //Content
                         $mail->isHTML(true);                                  // Set email format to HTML
-                        $mail->Subject = 'bạn đã đặt hàng thành công';
+                        $mail->Subject = 'bạn đã đặt hàng thành công , Mã đơn hàng của bạn là:' .$madh.'Và số tiền bạn cần thanh toán khi nhận hàng là:'.$tongdonhang ;
     
                     
-                        $body = 'new content';
+                        $body = "bạn đã đặt hàng thành công  ";
                         // $body .= '<p>Xin chào,</p>' ;
                        
                        

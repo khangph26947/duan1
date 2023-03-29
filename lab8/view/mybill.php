@@ -3,12 +3,12 @@
               <table style="width:110%; max-width:120%;text-align:center; font-size:13px; ">
                     <tr style="border:1px solid black">
                   <th>mã đơn hàng</th>
-                    <th>ténp</th>
-                    <th>hinh</th>
-                    <th>dongia</th>
-                    <th>soluong</th>
+                    <th>tên sản phẩm</th>
+                    <th>images</th>
+                    <th>đơn giá</th>
+                    <th>số lượng </th>
                     <th>màu sắc</th>
-                    <th>thanhtien</th>
+                    <th>thành tiền</th>
               
                     </tr>
                     <?php 

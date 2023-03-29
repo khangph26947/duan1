@@ -49,10 +49,10 @@ function loadall_donhang($iduser)
 //     return $listdh;
 // }
 
-// function delete_donhang($id){
-//     $sql="delete from orderby where id=".$id;
-//    pdo_execute($sql);
-// }
+function delete_donhang($id){
+    $sql="delete from orderby where id=".$id;
+   pdo_execute($sql);
+}
 
 function xoadonhang(){
     $sql="select*from orderby order by id desc";
