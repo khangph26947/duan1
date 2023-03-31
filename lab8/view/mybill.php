@@ -9,6 +9,7 @@
                     <th>số lượng </th>
                     <th>màu sắc</th>
                     <th>thành tiền</th>
+                    <th>trạng thái</th>
               
                     </tr>
                     <?php 
@@ -17,9 +18,14 @@
                           extract($bill);
                           echo '
                           <tr style="border:1px solid black">
-                          <td>' . $bill['id'] . '</td>
-                          <td>' . $bill['madh'] . '</td>
-                           <td>'.$bill['tongdonhang'].'</td>
+                          <td>bill-' . $id . '</td>
+                          <td>' . $tensp . '</td>
+                           <td><img src="./upload./'.$img.'" alt="" style="width: 50px;"></td>
+                           <td>' . $soluong . '</td>
+                           <td>' . $dongia . '</td>
+                           <td>' . $value . '</td>
+                           <td>' . $dongia*$soluong . '</td>
+                           <td>' . $status . '</td>
                           
                        
                           </tr>

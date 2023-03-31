@@ -1,8 +1,8 @@
 <?php
-function taodonhang($madh,$tongdonhang,$pttt,$name,$address,$email,$tel){
+function taodonhang($madh,$tongdonhang,$pttt,$name,$address,$email,$tel,$status){
     $connect=pdo_get_connection();
-    $sql="insert into orderby(madh,tongdonhang,pttt,name,address,email,tel) 
-    values('".$madh."','".$tongdonhang."','".$pttt."','".$name."','".$address."','".$email."','".$tel."')";
+    $sql="insert into orderby(madh,tongdonhang,pttt,name,address,email,tel,status) 
+    values('".$madh."','".$tongdonhang."','".$pttt."','".$name."','".$address."','".$email."','".$tel."','".$status."')";
    $connect->exec($sql);
     $last_id = $connect->lastInsertId();
     return $last_id;
@@ -22,6 +22,23 @@ function getshowcart($iddh){
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $kq=$stmt->fetchAll();
+    return $kq;
+}
+function getbill($iduser=-1){
+    $conn = connectdb();
+    $stmt = $conn->prepare("SELECT * FROM card where iduser=".$iduser);
+    $stmt->execute();
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $kq=$stmt->fetchAll();
+    return $kq;
+
+};
+function getbilladmin($id){
+    $conn = connectdb();
+    $stmt = $conn->prepare("SELECT * FROM orderby where id=".$id);
+    $stmt->execute();
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $kq=$stmt->fetch();
     return $kq;
 }
 function getorderinfo($iddh){

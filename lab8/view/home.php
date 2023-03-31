@@ -26,12 +26,12 @@
                            $linksp="index.php?act=sanphamct&idsp=" .$id;
                            $hinh=$img_path.$img;
                            echo '<div class="col-md-4 product-men">
-                           <div class="product-shoe-info shoe text-center">
+                           <div class="product-shoe-info shoe text-center" style="margin-bottom :10px">
                            <form action="index.php?act=addcart" method="post">
                            
                           
                                <div class="men-thumb-item">
-                               <a href="'.$linksp.'"><img src="'.$hinh.'" class="img-fluid" alt=""></a>
+                               <a href="'.$linksp.'"><img style="height:216px;" src="'.$hinh.'" class="img-fluid" alt=""></a>
                                    <span class="product-new-top">New</span>
                                </div>
                                <div class="item-info-product">
@@ -51,8 +51,8 @@
                                        <li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true"></span></a></li>
                                        <li><a href="#"><span class="fa fa-star-o" aria-hidden="true"></span></a></li>
                                    </ul>
-                                   <div>
-                                   <input type="submit" value="Mua Hang" name="addtocart">
+                                   <div style="border:1px solid black";>
+                                    <a href="'.$linksp.'">Mua Hàng</a>
                                    </div>
                                </div>
                                <input type="hidden" name="id" value="'.$id.'">
@@ -66,6 +66,8 @@
                         }
                         ?>
                         <!-- <div class="col-md-4 product-men">
+
+                         <input type="submit" value="Mua Hang" name="addtocart">
                             <div class="product-shoe-info shoe text-center">
                                 <div class="men-thumb-item">
                                     <img src="view/images/s1.jpg" class="img-fluid" alt="">

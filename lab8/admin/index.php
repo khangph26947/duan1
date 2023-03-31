@@ -24,6 +24,14 @@ include "header.php";
                     $listdh = xoadonhang();
                     include "donhang/listbill.php";
                     break;
+                    case 'updatedh':
+                       $bill=getbilladmin($_GET['id']);
+                     if(isset($_POST['update'])){
+                       $status=$_POST['status'];
+                       pdo_execute("update orderby set status = '" .$status ."' where id=" .$_GET['id']);
+                     };
+                        include "donhang/update.php";
+                        break;
 
                 case 'dsbl':
                     $listbinhluan = loadall_binhluan(0);

@@ -31,6 +31,7 @@
                     <th scope="col">Số lượng</th>
                     <th scope="col">Màu sắc</th>
                     <th scope="col" >Thành tiền</th>
+               
                     </tr>
                     </thead>
                     ';
@@ -41,7 +42,7 @@
                             $tt = $item['soluong'] * $item['dongia'];
                             $tong += $tt;
                             echo '
-                       <tr">
+                       <tr>
                        <td>' . ($i + 1) . '</td>
                        <td>' . $item['tensp'] . '</td>
                         <td>  <img src="./upload./'.$item['img'].'"width=80></td>
@@ -49,6 +50,7 @@
                        <td>' . $item['soluong'] . '</td>
                        <td>' . $item['value'] . '</td>
                        <td>' . $tt . '</td>
+                     
                     
                        </tr>
                        ';
@@ -62,9 +64,11 @@
                         </tr>';
                         echo '</table>';
                     }
+                    
                 }else{
-                    echo 'gio hang rong  <a href="index.php"> vui lòng chọn sản phẩm</a>  ';
+                    echo 'gio hang rong  <a href="index.php"> vui lòng chọn sản phẩm</a>';
                 }
+            
 
                     ?>
                  

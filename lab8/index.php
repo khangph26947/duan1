@@ -179,6 +179,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     $address=$_POST['address'];
                     $tel=$_POST['tel'];
                     $pttt=$_POST['pttt'];
+                    $status='chờ xử lý';
                     $madh="KT".rand(0,999999);
 
                     try {
@@ -202,7 +203,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     
                         //Content
                         $mail->isHTML(true);                                  // Set email format to HTML
-                        $mail->Subject = 'bạn đã đặt hàng thành công , Mã đơn hàng của bạn là:' .$madh.'Và số tiền bạn cần thanh toán khi nhận hàng là:'.$tongdonhang ;
+                        $mail->Subject = 'bạn đã đặt hàng thành công , Mã đơn hàng của bạn là:' .$madh.'  Và số tiền bạn cần thanh toán khi nhận hàng là:'.$tongdonhang ;
     
                     
                         $body = "bạn đã đặt hàng thành công  ";
@@ -223,7 +224,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                         echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
                     } 
                   
-                    $iddh=taodonhang($madh,$tongdonhang,$pttt,$name,$address,$email,$tel);
+                    $iddh=taodonhang($madh,$tongdonhang,$pttt,$name,$address,$email,$tel,$status);
                    $_SESSION['iddh']=$iddh;
                     if(isset($_SESSION['giohang'])&&(count($_SESSION['giohang'])>0)){
                         foreach ($_SESSION['giohang'] as $item) {
@@ -289,6 +290,12 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     }
                     include "view/taikhoan/quenmk.php";
                     break;
+                    case 'mybill':
+
+                       $listcart=getbill();
+                    //    print_r($listcart);
+                        include "view/mybill.php";
+                        break;
 
         default:
             include 'view/home.php';

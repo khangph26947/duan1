@@ -52,8 +52,9 @@
 
                                 ?>
                                 <div class="available mt-3">
-                                    <form action="index.php?act=addcart" method="post" class="w3layouts-newsletter">
-                                        <input type="number" name="sl" value="1" min=1 max=10 required="">
+                                <form action="index.php?act=addcart" method="post" class="w3layouts-newsletter">
+                                        <input type="number" name="sl" value="1" min=1 max=10 required="" style="height: 24px;
+                                                                                                                 margin-right: 10px;">
                                         <input type="hidden" name="id" value="<?php echo $id ?>">
                                         <input type="hidden" name="img" value="<?php echo $img ?>">
                                         <input type="hidden" name="name" value="<?php echo $name ?>">
@@ -78,7 +79,7 @@
                                             <input type="radio" name="value" value="màu đen">màu đen<br>
                                             <input type="radio" name="value" value="màu hồng"> màu hồng <br> -->
                                         </div> 
-                                        <input type="submit" value="Đặt Hàng" name="addtocart">
+                                        <input type="submit" value="Đặt Hàng" name="addtocart" style="margin-left: 10px; height: 25px;">
 
                                     </form>
 

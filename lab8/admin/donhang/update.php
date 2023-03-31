@@ -1,18 +1,19 @@
 <div class="row">
     <div class="row formtitle">
-        <h1>DANH SÁCH Đơn Hàng</h1>
+        <h1>update Đơn Hàng</h1>
     </div>
     <div class="row formcontent">
         <div class="row mb10 formdsloai">
+            <form action="" method="post">
             <table>
+              
                 <tr>
                     <th></th>
                     <th>ID</th>
                     <th>Mã Đơn Hàng</th>
                     <th>Khách Hàng</th>
                     <th>tổng tiền</th>
-                    <th>Pttt</th>
-                    <th>trạng thái</th>
+                    <th>Phương Thức Thanh Toán</th>
                   
                     <th>Địa chỉ</th>
                     <th>Email</th>
@@ -20,11 +21,22 @@
                     <th></th>
                 </tr>
                 <?php
-                foreach ($listdh as $bill) {
+              $billstatus=[
+                'chờ xử lý',
+                'đang giao hàng',
+                'đã nhận hàng',
+              ];
                     extract($bill);
+                 $options='';
+                 foreach ($billstatus as $option) {
+                    if(strtolower($status)==$option)
+                    $options .=' <option selected value="'.$option.'">'.$option.'</option>';
+                    else $options .=' <option  value="'.$option.'">'.$option.'</option>';
+
+                 }
                    
-                    $xoadh="index.php?act=xoadh&id=".$id;
-                    $updatedh="index.php?act=updatedh&id=".$id;
+                    
+                   
 
                     echo'
                     <tr>
@@ -34,7 +46,7 @@
                        <td>' . $name . '</td>
                        <td>' . $tongdonhang . '</td>
                        <td>' . $pttt . '</td>
-                        <td>'.$status.'</td>
+                  
                        <td>' . $address . '</td>
                        <td>' . $email . '</td>
                        <td>' . $tel . '</td>
@@ -42,14 +54,18 @@
 
 
                          
-                           <a href="'. $xoadh.'"><input type="button" value="xóa"></a>
-                           <a href="'. $updatedh.'"><input type="button" value="update"></a>
+                         <select name="status" id="">
+                  '.$options.'
+                         
+                         </select> 
+                         <button name="update">cập nhât</button>
                        
                        </td>
                    </tr>';
-                }
+                
                 ?>
             </table>
+            </form>
         </div>
 
        

@@ -12,9 +12,11 @@ body {
     background: #fff;
     font-family: 'Lato', sans-serif;
     scroll-behavior: smooth;
+  
 }
 
 body a {
+    
     text-decoration: none;
     transition: 0.5s all;
     -webkit-transition: 0.5s all;
