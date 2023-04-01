@@ -24,15 +24,15 @@ function getshowcart($iddh){
     $kq=$stmt->fetchAll();
     return $kq;
 }
-function getbill($iduser=-1){
+function getbill($iduser=0){
     $conn = connectdb();
-    $stmt = $conn->prepare("SELECT * FROM card where iduser=".$iduser);
+    $stmt = $conn->prepare("SELECT * FROM orderby where iduser=".$iduser);
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $kq=$stmt->fetchAll();
     return $kq;
 
-};
+}
 function getbilladmin($id){
     $conn = connectdb();
     $stmt = $conn->prepare("SELECT * FROM orderby where id=".$id);

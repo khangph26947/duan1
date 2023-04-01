@@ -125,6 +125,9 @@
 
 
                               </td>
+                              <tr>
+                              <td>tinh trang don hang : <?php echo  $orderinfo[0]['status'] ?></td>
+                          </tr>
 
                           </tr>
                          
