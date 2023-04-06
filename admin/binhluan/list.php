@@ -1,45 +1,43 @@
-
-
-        <div class="row1 form__list">
+       <div class="row1 form__list">
       <div class="from">
-          <h2>Quản Lý Tài khoản</h2>
+          <h2>Quản Lý Bình luận</h2>
       </div>
-    <div class="from_list2">
+    <div class="from_list">
                 <div class="from_table">
-                    <h2>Danh sách Tài khoản</h2>
-                    <p>Danh sách các tài khoản có trên hệ thống</p>
+                    <h2>Danh sách bình luận</h2>
+                    <p>Danh sách binh luận có trên hệ thống</p>
                 </div>
             <div class="from_table-content">
                 <table>
                     <tr>
-                        <th class="bluan3"></th>
-                        <th class="bluan3">Mã tài khoản</th>
-                        <th class="bluan3">Tên Đăng nhập</th>
-                        <th class="bluan3">Mật khẩu </th>
-                        <th class="bluan3">Email</th>
-                        <th class="bluan3">Địa chỉ</th>
-                        <th class="bluan3">Vai trò</th>
-                        <th class="bluan3">Hành động</th>
+                        <th class="bluan"></th>
+                        <th class="bluan">ID</th>
+                        <th class="bluan">Tên bình luận</th>
+                        <th class="bluan">Nội dung bình luận</th>
+                        <th class="bluan">Iduser</th>
+                        <th class="bluan">Idpro</th>
+                        <th class="bluan">Ngày bình luận</th>
+                        <th class="bluan">Hành động</th>
                     </tr>
                     <?php
-                    foreach ($listtaikhoan as $taikhoan) {
-                        extract($taikhoan);
-                        $suatk="index.php?act=suatk&id=".$id;
-                        $xoatk="index.php?act=xoatk&id=".$id;
+                    foreach ($listbinhluan as $binhluan) {
+                        //extrac để ta có thể lấy thẳng vào tên từng cột 
+                         extract($binhluan);
+                        $suabl="index.php?act=suabl&id=".$id;
+                        $xoabl="index.php?act=xoabl&id=".$id;
                        echo'
                        <tr>
                        <td class="bluan1"><input type="checkbox"></td>
                        <td class="bluan1">'.$id.'</td>
-                       <td class="bluan1">'.$user.'</td>
-                       <td class="bluan1">'.$pass.'</td>
-                       <td class="bluan1">'.$email.'</td>
-                       <td class="bluan1">'.$address.'</td>
-                   
-                       <td class="bluan1">'.$role.'</td>
+                       <td class="bluan1">'.$name.'</td>
+                       <td class="bluan1">'.$noidung.'</td>
+                       <td class="bluan1">'.$iduser.'</td>
+                       <td class="bluan1">'.$idpro.'</td>
+                       <td class="bluan1">'.$ngaybinhluan.'</td>
                        <td class="bluan1"> 
-                       <a href="'. $suatk.'"><input class="mau1" type="button" value="sửa"></a>
 
-                           <a href="'. $xoatk.'"><input class="mau2" type="button" value="xóa"></a>
+
+                           <a href="'. $xoabl.'"><input class="mau2" type="button" value="xóa"></a>
                        
                        </td>
                    </tr>';
