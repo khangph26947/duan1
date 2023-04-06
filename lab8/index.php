@@ -174,7 +174,11 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 if(isset($_POST['thanhtoan'])&&($_POST['thanhtoan'])){
                     //lấy dữ liệu
                     $tongdonhang=$_POST['tongdonhang'];
-                    $name=$_POST['name'];
+                     $name=$_POST['name'];
+                    // $error = [];
+                    // if (empty($name)) {
+                    //     $error['name'] = "Trường này không được để trống";
+                    // }
                     $email=$_POST['email'];
                     $address=$_POST['address'];
                     $tel=$_POST['tel'];
@@ -291,9 +295,15 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     include "view/taikhoan/quenmk.php";
                     break;
                     case 'mybill':
-
-                       $listcart=getbill();
-                    //    print_r($listcart);
+                        if (isset($_POST['timkiem']) && ($_POST['timkiem'])) {
+                            $kyw = $_POST['kyw'];
+                            
+                        } else {
+                            $kyw = '';
+                          
+                        }
+                       $listcart=loadall_bill($kyw);
+                        // print_r($listcart);
                         include "view/mybill.php";
                         break;
 

@@ -24,14 +24,24 @@ function getshowcart($iddh){
     $kq=$stmt->fetchAll();
     return $kq;
 }
-function getbill($iduser=0){
-    $conn = connectdb();
-    $stmt = $conn->prepare("SELECT * FROM orderby where iduser=".$iduser);
-    $stmt->execute();
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    $kq=$stmt->fetchAll();
-    return $kq;
+// function getbill($iduser=0){
+//     $conn = connectdb();
+//     $stmt = $conn->prepare("SELECT * FROM orderby where iduser=".$iduser);
+//     $stmt->execute();
+//     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+//     $kq=$stmt->fetchAll();
+//     return $kq;
 
+// }
+function loadall_bill($kyw=""){
+    $sql="select*from orderby where 1";
+    if($kyw!=""){
+        // tìm theo tên 
+        $sql.=" and madh like '%".$kyw."%'";
+    }
+    $sql.=" order by id desc";
+    $listbill=pdo_query($sql);
+    return $listbill;
 }
 function getbilladmin($id){
     $conn = connectdb();

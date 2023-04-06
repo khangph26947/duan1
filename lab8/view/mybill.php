@@ -1,4 +1,4 @@
-<div class="col-md-6 contact-right-content">
+<div class="col-md-6 contact-right-content" style=" margin-left: 300px; margin-top:30px;">
                   <!-- left -->
               <table style="width:110%; max-width:120%;text-align:center; font-size:13px; ">
                     <tr style="border:1px solid black">
@@ -33,6 +33,12 @@
                    
                 
                       </table>
+                      <div style="margin-top: 20px; width: 730px; margin-bottom: 20px; ">
+                        <form action="index.php?act=mybill" method="post">
+                          <input type="text" name="kyw" placeholder="mời bạn nhập mã đơn hàng..." >
+                          <input type="submit" name="timkiem" value="Tìm Kiếm">
+                        </form>
+                      </div>
          
                  
               </div>
