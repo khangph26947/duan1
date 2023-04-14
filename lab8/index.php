@@ -307,6 +307,28 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                         include "view/mybill.php";
                         break;
 
+                        case 'xoadh':
+                            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                               // delete_danhmuc($_GET['id']);
+                               update_status_dh($_GET['id'],'yeu cau huy');
+                            }
+                            $listcart=loadall_bill();
+                            include "view/mybill.php";
+                            break;
+
+                            case 'listcard':
+                                if (isset($_POST['listok']) && ($_POST['listok'])) {
+                                    $kyw = $_POST['kyw'];
+                                    $madh = $_POST['madh'];
+                                } else {
+                                    $kyw = '';
+                                    $madh = '';
+                                }
+                                $listcart=loadall_bill();
+                                $listcard = loadall_cart($kyw, $madh);
+                                include "view/chitietdh.php";
+                                break;
+
         default:
             include 'view/home.php';
             break;

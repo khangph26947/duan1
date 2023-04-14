@@ -1,57 +1,60 @@
-<div class="row">
-    <div class="row formtitle">
-        <h1>DANH SÁCH Đơn Hàng</h1>
-    </div>
-    <div class="row formcontent">
-        <div class="row mb10 formdsloai">
-            <table>
+<div class="row1 form__list">
+      <div class="from">
+          <h2>Quản Lý đơn hàng</h2>
+      </div>
+    <div class="from_list2">
+                <div class="from_table">
+                    <h2>Danh sách đơn hàng</h2>
+                    <p>Danh sách các đơn hàng có trên hệ thống</p>
+                </div>
+            <div class="from_table-content">
+                <table>
                 <tr>
-                    <th></th>
-                    <th>ID</th>
-                    <th>Mã Đơn Hàng</th>
-                    <th>Khách Hàng</th>
-                    <th>tổng tiền</th>
-                    <th>Pttt</th>
-                    <th>trạng thái</th>
-                  
-                    <th>Địa chỉ</th>
-                    <th>Email</th>
-                    <th>Sô điện thoại</th>
-                    <th></th>
+                    <th class="bluan"></th>
+                    <th class="bluan">ID</th>
+                    <th class="bluan">Mã Đơn Hàng</th>
+                    <th class="bluan">Khách Hàng</th>
+                    <th class="bluan">Tổng tiền</th>
+                    <th class="bluan">Trạng thái giao hàng </th>
+                    <th class="bluan">Địa chỉ</th>
+                    <th class="bluan">Email</th>
+                    <th class="bluan">Sô điện thoại</th>
+                    <th class="bluan">Hành động</th>
                 </tr>
                 <?php
                 foreach ($listdh as $bill) {
                     extract($bill);
+                   if(strcasecmp($status,'đã hủy đơn')==0 ||strcasecmp($status,'đã nhận hàng')==0){
+                    $updatedh='';
+                   }else{
                    
-                    $xoadh="index.php?act=xoadh&id=".$id;
                     $updatedh="index.php?act=updatedh&id=".$id;
+                   }
+                    $xoadh="index.php?act=xoadh&id=".$id;
+                   
 
                     echo'
                     <tr>
-                       <td><input type="checkbox"></td>
-                       <td>' . $id . '</td>
-                       <td>' . $madh . '</td>
-                       <td>' . $name . '</td>
-                       <td>' . $tongdonhang . '</td>
-                       <td>' . $pttt . '</td>
-                        <td>'.$status.'</td>
-                       <td>' . $address . '</td>
-                       <td>' . $email . '</td>
-                       <td>' . $tel . '</td>
-                       <td> 
+                    <td class="bluan1"><input type="checkbox"></td>
+                    <td class="bluan1">' . $id . '</td>
+                    <td class="bluan1">' . $madh . '</td>
+                    <td class="bluan1">' . $name . '</td>
+                    <td class="bluan1">' . $tongdonhang . '</td>
+                     <td class="bluan1">'.$status.'</td>
+                    <td class="bluan1">' . $address . '</td>
+                    <td class="bluan1">' . $email . '</td>
+                    <td class="bluan1">' . $tel . '</td>
+                    <td class="bluan1"> 
 
 
                          
-                           <a href="'. $xoadh.'"><input type="button" value="xóa"></a>
-                           <a href="'. $updatedh.'"><input type="button" value="update"></a>
+                           <a href="'. $xoadh.'"><input class="mau1" type="button" value="xóa"></a>
+                           <a href="'. $updatedh.'"><input class="mau3" type="button" value="update"></a>
                        
                        </td>
                    </tr>';
                 }
                 ?>
-            </table>
-        </div>
-
-       
+                </table>
+            </div>
     </div>
-</div>

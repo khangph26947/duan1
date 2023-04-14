@@ -1,13 +1,24 @@
-<div class="row">
-            <div class="row formtitle"><h1>DANH SÁCH LOẠI HÀNG HÓA</h1></div>
-            <div class="row formcontent">
-                <div class="row mb10 formdsloai">
-                   <table>
+<div class="row1 form__list">
+      <div class="from">
+          <h2>Quản Lý danh mục</h2>
+      </div>
+    <div class="from_list">
+            <div class="from_flex">
+                <div class="from_table">
+                    <h2>Danh sách danh mục</h2>
+                    <p>Danh sách các danh mục sản phẩm có trên hệ thống</p>
+                </div>
+                <div class="from_table--btn">
+                     <a href="index.php?act=adddm"><input class="btn--s btn_primary" type="button" value="NHẬP THÊM"></a> 
+                </div>
+            </div>
+            <div class="from_table-content">
+                <table>
                     <tr>
                         <th></th>
                         <th>Mã Loại</th>
                         <th>Tên Loại</th>
-                        <th></th>
+                        <th>Hành động</th>
                     </tr>
                     <?php
                     foreach ($listdanhmuc as $danhmuc) {
@@ -21,22 +32,14 @@
                        <td>'.$id.'</td>
                        <td>'.$name.'</td>
                        <td> 
-                       <a href="'. $suadm.'"><input type="button" value="sửa"></a>
+                       <a href="'. $suadm.'"><input class="mau1" type="button" value="sửa"></a>
 
-                           <a href="'. $xoadm.'"><input type="button" value="xóa"></a>
+                           <a href="'. $xoadm.'"><input class="mau2" type="button" value="xóa"></a>
                        
                        </td>
                    </tr>';
                     }
                     ?>
-                   </table>
-                  </div>  
-                
-                <div class="row mb10">
-                    <!-- <input type="button" value="CHỌN TẤT CẢ">
-                    <input type="button" value="BỎ CHỌN TẤT CẢ">
-                    <input type="button" value="XÓA CÁC MỤC ĐÃ CHỌN"> -->
-                   <a href="index.php?act=adddm"><input type="button" value="NHẬP THÊM"></a> 
-                </div>
+                </table>
             </div>
-        </div>
+    </div>

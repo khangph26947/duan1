@@ -116,6 +116,11 @@
 
                 // }
                 ?>
+                <?php 
+                if(!empty($_SESSION['giohang'])){
+
+                
+                ?>
               <div class="col-md-4 contact-left-content" style="padding-left: 100px;">
                   <!-- right -->
 
@@ -199,6 +204,95 @@
                   </form>
 
               </div>
+              <?php } else{
+                if(isset($_POST['thanhtoan'])||empty($_SESSION['giohang']))
+                echo 'vui lòng chọn sản phẩm';
+                
+               ?>
+                 <div class="col-md-4 contact-left-content" style="padding-left: 100px;">
+                  <!-- right -->
+
+                  <h3>Thông Tin Đặt hàng</h3>
+                  <form action="" method="post">
+                      <input type="hidden" name="tongdonhang" value="<?php echo $tong ?>">
+                      <table>
+                          <?php
+                            if (isset($_SESSION['username']) && ($_SESSION['address']) && ($_SESSION['email'])) {
+                                $name =  $_SESSION['username'];
+                                $address =   $_SESSION['address'];
+                                $email =  $_SESSION['email'];
+                            } else {
+                                $name = "";
+                                $address = "";
+                                $email = "";
+                            }
+                            ?>
+
+
+
+                          <div class="form-group row">
+                              <div class="col-sm-10">
+                                  <input type="text" class="form-control" required value="<?= $name ?>" name="name" placeholder="Nhập tên">
+
+                              </div>
+
+                          </div>
+                          <div class="form-group row">
+                              <div class="col-sm-10">
+                                  <input type="text" class="form-control" required value="<?= $address ?>" name="address" placeholder="Nhập địa chỉ">
+                              </div>
+                          </div>
+                          <div class="form-group row">
+                              <div class="col-sm-10">
+
+                                  <input type="text" class="form-control"  value="<?= $email ?>" name="email" placeholder="Nhập email"  
+                                  pattern="^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})$" oninvalid="this.setCustomValidity('Vui lòng nhập gmail')"
+                                     onchange="this.setCustomValidity('')" required>
+                              </div>
+                          </div>
+                          <div class="form-group row">
+                              <div class="col-sm-10">
+
+                                  <input type="text" class="form-control"  name="tel" placeholder="Nhập số điện thoại"
+                                  pattern="^(84|0[35789])[0-9]{8}$" oninvalid="this.setCustomValidity('Vui lòng nhập số điện thoại')"
+                                     onchange="this.setCustomValidity('')" required>
+                              </div>
+                          </div>
+
+                          <div class="row">
+                              <h6 style="margin-bottom: 10px; margin-left:10px;">Phương thức thanh toán</h6>
+                              <div class="col-sm-10">
+                                  <div class="form-check" style="margin-bottom:10px;">
+                                      <input class="form-check-input" type="radio" name="pttt" value="1">
+                                      <label class="form-check-label" for="pttt">
+                                          Thanh toán khi nhận hàng
+                                      </label>
+                                  </div>
+
+
+                              </div>
+                          </div>
+                          <tr>
+                              <input class="btn btn-primary" type="submit" name="thanhtoan" value=" Thanh Toán">
+                          </tr>
+                          <!-- <tr>
+                              <td>PHƯƠNG THỨC THANH TOÁN <br>
+                                  <input type="radio" name="pttt" value="1" required> thanh toán khi nhận hàng <br>
+                                   <input type="radio" name="pttt" value="2"> thanh toán chuyển khoản <br>
+                                  <input type="radio" name="pttt" value="3"> thanh toán ví momo <br>
+                                  <input type="radio" name="pttt" value="4"> thanh toán online <br>  -->
+
+
+                          </td>
+
+                          </tr>
+
+
+                      </table>
+                  </form>
+
+              </div>
+               <?php }?>
 
           </div>
       </div>

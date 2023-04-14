@@ -1,9 +1,14 @@
-<div class="row">
-            <div class="row formtitle"><h1> THÊM MỚI SẢN PHẨM</h1></div>
-            <div class="row formcontent">
-                <form action="index.php?act=addsp" method="post" enctype="multipart/form-data">
-                  <div class="row mb10">
-                    Danh Mục <br>
+
+<div class="row1 form__list">
+      <div class="from">
+          <h2>Thêm mới sản phẩm</h2>
+      </div>
+      <div class="from_list">
+                    <div class="from_conten">
+                        <h2 class="gachchan">Form thông tin sản phẩm mới</h2>
+            <form action="index.php?act=addsp" method="post" enctype="multipart/form-data">
+            <div class="from_conten-item">
+                  <label for="">Danh mục</label><br>
                   <select name="iddm">
                     <?php
                     foreach ($listdanhmuc as $danhmuc) {
@@ -13,34 +18,37 @@
                     ?>
         
                   </select>
-                  </div>  
-                  <div class="row mb10">
-                    Tên sản phẩm <br>
-                    <input type="text" name="tensp" >
-                </div>
-                <div class="row mb10">
-                    Giá sản phẩm <br>
-                    <input type="text" name="giasp" >
-                </div>
-                <div class="row mb10">
-                    Hình sản phẩm <br>
-                   <input type="file" name="hinh" >
-                </div>
-                <div class="row mb10">
-                    Mô Tả sản phẩm <br>
-                   <textarea name="mota"  cols="30" rows="10"></textarea>
-                </div>
-
-               <div class="row mb10">
-                    <input type="submit" name="themmoi" value="THÊM MỚI">
-                    <input type="reset" value="NHẬP LẠI">
-                   <a href="index.php?act=listsp"><input type="button" value="DANH SÁCH"></a> 
-                </div>
-                <?php 
-                if(isset($thongbao)&&($thongbao!=""))
-                echo $thongbao;
-                ?>
-                </form>
             </div>
-        </div>
+                        <div class="from_conten-item">
+                            <label for="">Tên sản phẩm</label><br>
+                            <input type="text" name="tensp" placeholder="Nhập vào tên sản phẩm">
+                        </div>
+                        <div class="from_conten-item">
+                            <label for="">Giá sản phẩm</label><br>
+                            <input type="text" name="giasp" placeholder="Nhập vào giá sản phẩm">
+                        </div>
+                        <div class="from_conten-item">
+                            <label for="">Hình ảnh sản phẩm</label><br>
+                            <input type="file" name="hinh">
+                        </div>
+                        <div class="from_conten-item">
+                            <label for="">Mô tả sản phẩm</label><br>
+                            <textarea name="mota"  cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="from__btn">
+                    <input class="btn btn_primary" type="submit" name="themmoi" value="THÊM MỚI">
+                              <input class="btn btn_sam" type="reset" value="NHẬP LẠI">
+                            <a href="index.php?act=listsp"><input class="btn btn_nhat" type="button" value="DANH SÁCH"></a> 
+                    </div>
+                    <div class="thongbao">
+                      <?php 
+                              if(isset($thongbao)&&($thongbao!=""))
+                              echo $thongbao;
+                              ?>
+                  </form>
+                     </div>
+      </div>
+</div>
+  
   

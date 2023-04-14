@@ -63,10 +63,10 @@
                      
                         </tr>';
                         echo '</table>';
-                    }
+                    }else{
+                        echo 'gio hang rong  <a href="index.php"> vui lòng chọn sản phẩm</a>';
+                    };
                     
-                }else{
-                    echo 'gio hang rong  <a href="index.php"> vui lòng chọn sản phẩm</a>';
                 }
             
 

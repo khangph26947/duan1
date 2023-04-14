@@ -1,50 +1,49 @@
-<div class="row">
-            <div class="row formtitle"><h1>DANH SÁCH Tài Khoản</h1></div>
-            <div class="row formcontent">
-                <div class="row mb10 formdsloai">
-                   <table>
+
+
+<div class="row1 form__list">
+      <div class="from">
+          <h2>Quản Lý Tài khoản</h2>
+      </div>
+    <div class="from_list2">
+                <div class="from_table">
+                    <h2>Danh sách Tài khoản</h2>
+                    <p>Danh sách các tài khoản có trên hệ thống</p>
+                </div>
+            <div class="from_table-content">
+                <table>
                     <tr>
-                        <th></th>
-                        <th>Mã Tài Khoản</th>
-                        <th>Tên Đăng Nhập</th>
-                        <th>Mật Khẩu</th>
-                        <th>Email</th>
-                        <th>Địa Chỉ</th>
-                   
-                        <th>Vai Trò</th>
-                        <th></th>
-                        <th></th>
+                        <th class="bluan3"></th>
+                        <th class="bluan3">Mã tài khoản</th>
+                        <th class="bluan3">Tên Đăng nhập</th>
+                        <th class="bluan3">Mật khẩu </th>
+                        <th class="bluan3">Email</th>
+                        <th class="bluan3">Địa chỉ</th>
+                        <th class="bluan3">Vai trò</th>
+                        <th class="bluan3">Hành động</th>
                     </tr>
                     <?php
                     foreach ($listtaikhoan as $taikhoan) {
                         extract($taikhoan);
-                        $suatk="index.php?act=suatk&id=".$id;
+                      
                         $xoatk="index.php?act=xoatk&id=".$id;
                        echo'
                        <tr>
-                       <td><input type="checkbox"></td>
-                       <td>'.$id.'</td>
-                       <td>'.$user.'</td>
-                       <td>'.$pass.'</td>
-                       <td>'.$email.'</td>
-                       <td>'.$address.'</td>
+                       <td class="bluan1"><input type="checkbox"></td>
+                       <td class="bluan1">'.$id.'</td>
+                       <td class="bluan1">'.$user.'</td>
+                       <td class="bluan1">'.$pass.'</td>
+                       <td class="bluan1">'.$email.'</td>
+                       <td class="bluan1">'.$address.'</td>
                    
-                       <td>'.$role.'</td>
-                       <td> 
-                       <a href="'. $suatk.'"><input type="button" value="sửa"></a>
-
-                           <a href="'. $xoatk.'"><input type="button" value="xóa"></a>
+                       <td class="bluan1">'.$role.'</td>
+                       <td class="bluan1"> 
+                     
+                           <a href="'. $xoatk.'"><input class="mau2" type="button" value="xóa"></a>
                        
                        </td>
                    </tr>';
                     }
                     ?>
-                   </table>
-                  </div>  
-                
-                <div class="row mb10">
-                   
-                   <a href=""><input type="button" value="NHẬP THÊM"></a> 
-                </div>
+                </table>
             </div>
-        </div>
+    </div>

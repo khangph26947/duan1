@@ -1,73 +1,73 @@
-<div class="row">
-    <div class="row formtitle">
-        <h1>update Đơn Hàng</h1>
-    </div>
-    <div class="row formcontent">
-        <div class="row mb10 formdsloai">
-            <form action="" method="post">
-            <table>
-              
-                <tr>
-                    <th></th>
-                    <th>ID</th>
-                    <th>Mã Đơn Hàng</th>
-                    <th>Khách Hàng</th>
-                    <th>tổng tiền</th>
-                    <th>Phương Thức Thanh Toán</th>
-                  
-                    <th>Địa chỉ</th>
-                    <th>Email</th>
-                    <th>Sô điện thoại</th>
-                    <th></th>
+
+
+
+<div class="row1 form__list">
+<div class="from">
+          <h2>Quản Lý Đơn hàng</h2>
+      </div>
+    <div class="from_list2">
+                <div class="from_table">
+                    <h2>Update đơn hàng</h2>
+                </div>
+            <div class="from_table-content">
+              <form action="" method="post">
+                <table>
+                   <tr>
+                    <th class="bluan"></th>
+                    <th class="bluan">ID</th>
+                    <th class="bluan">Mã Đơn Hàng</th>
+                    <th class="bluan">Khách Hàng</th>
+                    <th class="bluan">Tổng tiền</th>
+                    <th class="bluan">Phương thức thanh toán</th>
+                    <th class="bluan">Địa chỉ</th>
+                    <th class="bluan">Email</th>
+                    <th class="bluan">Sô điện thoại</th>
+                    <th class="bluan">Hành động</th>
                 </tr>
                 <?php
-              $billstatus=[
-                'chờ xử lý',
-                'đang giao hàng',
-                'đã nhận hàng',
-              ];
-                    extract($bill);
-                 $options='';
-                 foreach ($billstatus as $option) {
-                    if(strtolower($status)==$option)
-                    $options .=' <option selected value="'.$option.'">'.$option.'</option>';
-                    else $options .=' <option  value="'.$option.'">'.$option.'</option>';
+             $billstatus=[
+               'chờ xử lý',
+               'đang xử lý',
+               'đang giao hàng',
+               'đã nhận hàng',
+               'yêu cầu hủy đơn hàng',
+               'đã hủy đơn',
+             ];
+                   extract($bill);
+                $options='';
+                foreach ($billstatus as $option) {
+                   if(strtolower($status)==$option)
+                   $options .=' <option selected value="'.$option.'">'.$option.'</option>';
+                   else $options .=' <option  value="'.$option.'">'.$option.'</option>';
 
-                 }
-                   
-                    
-                   
+                }
 
                     echo'
                     <tr>
-                       <td><input type="checkbox"></td>
-                       <td>' . $id . '</td>
-                       <td>' . $madh . '</td>
-                       <td>' . $name . '</td>
-                       <td>' . $tongdonhang . '</td>
-                       <td>' . $pttt . '</td>
-                  
-                       <td>' . $address . '</td>
-                       <td>' . $email . '</td>
-                       <td>' . $tel . '</td>
-                       <td> 
+                       <td class="bluan1"><input type="checkbox"></td>
+                       <td class="bluan1">' . $id . '</td>
+                       <td class="bluan1">' . $madh . '</td>
+                       <td class="bluan1">' . $name . '</td>
+                       <td class="bluan1">' . $tongdonhang . '</td>
+                       <td class="bluan1">' . $pttt . '</td>
+                       <td class="bluan1">' . $address . '</td>
+                       <td class="bluan1">' . $email . '</td>
+                       <td class="bluan1">' . $tel . '</td>
+                       <td class="bluan1"> 
 
 
                          
-                         <select name="status" id="">
-                  '.$options.'
-                         
-                         </select> 
-                         <button name="update">cập nhât</button>
+                       <select name="status" id="">
+                       '.$options.'
+                              
+                              </select> 
+                              <button class="mau3" name="update">cập nhât</butto
                        
                        </td>
                    </tr>';
                 
                 ?>
-            </table>
-            </form>
-        </div>
-
-       
+                </table>
+                </form>
+            </div>
     </div>
-</div>

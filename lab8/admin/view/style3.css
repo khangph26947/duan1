@@ -1,0 +1,411 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+}
+
+header {
+    float: left;
+    width: 100%;
+    background-color: black;
+    margin-bottom: 5px;
+    padding: 20px;
+    color: #eee;
+}
+
+footer {
+    float: left;
+    width: 100%;
+    background-color: #FFF;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.main {
+    float: left;
+    width: calc(100% - 100px);
+    padding: 0px 50px;
+}
+
+th {
+    padding: 12px 80px;
+    color: #545353;
+    font-weight: 600;
+}
+.bluan {
+    padding: 12px 30px;
+    color: #545353;
+    font-weight: 600;
+}
+
+.bluan3 {
+    padding: 12px 20px;
+    color: #545353;
+    font-weight: 600;
+}
+
+td {
+    padding: 12px 80px;
+    color: #545353;
+    font-weight: 400;
+}
+
+.bluan1 {
+    padding: 12px 15px;
+    color: #545353;
+    font-weight: 400;
+}
+
+.bluan2 {
+    padding: 12px 50px;
+    color: #545353;
+    font-weight: 400;
+}
+
+
+
+table {
+    border-collapse: collapse;
+}
+.row {
+    float:left;
+    width: 100%;
+    text-align: center;
+}
+
+.row1 {
+    float:left;
+    width: 100%;
+}
+.boxsp {
+    float: left;
+    min-height: 300px;
+    width: 32%;
+    border: 1px #eee solid;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+.boxsp img {
+    width: 80%;
+    border-radius: 20px;
+  
+   
+}
+.boxsp .img{
+    min-height: 230px;
+    text-align: center;
+}
+.img img{
+    height: 200px;
+}
+.magin{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.formtitle {
+    background-color: #fff;
+    border: 1px #ccc solid;
+    color: #666;
+    border-radius: 5px;
+    padding: 0px 20px;
+}
+.formcontent{
+    padding: 20px 0px;
+}
+.formdsloai table {
+    width: 100%;
+    border-collapse: collapse;
+   
+}
+.formdsloai table th {
+     padding: 20px;
+    background-color: #ccc;
+}
+.mb{
+    margin-bottom:20px;
+    
+}
+
+.mb10{
+    margin-bottom:10px;
+    
+}
+.mr{
+    margin-right: 2%;
+}
+
+.menu nav{
+  
+  padding:  0px 15px;
+
+
+}
+.menu nav li{
+  list-style-type: none;
+  display: inline;
+  padding: 0px 15px;
+}
+.menu nav li a {
+ color: #ccc;
+  text-decoration: none;
+  transition: 0.5s;
+  
+}
+.menu nav li a:hover {
+  color: white;
+  font-size:0.8vw;
+}
+
+
+.from {
+    background-color: #FFF;
+    border: 1px #ccc solid;
+    border-radius: 5px;
+    padding: 20px 20px;
+    margin-bottom: 24px;
+}
+.from h2{
+    color: #000000;
+    font-size: 16px;   
+    font-weight: 500;
+}
+.from_list {
+    background-color: #fff;
+    width: 80%;
+    margin: auto;
+    height: auto;
+    border-radius: 5px;
+}
+
+.from_list1 {
+    background-color: #fff;
+    width: 90%;
+    margin: auto;
+    height: auto;
+    border-radius: 5px;
+}
+.from_list2 {
+    background-color: #fff;
+    width: 100%;
+    margin: auto;
+    height: auto;
+    border-radius: 5px;
+}
+
+.from_conten {
+    border-radius: 5px;
+} 
+
+.from_conten h2{
+    background-color: #FFF;
+    font-size: 18px;
+    color: #565454;
+    font-weight: 600;
+    padding: 26px 26px;
+}
+
+.gachchan {
+     border-bottom: 1px solid #ccc;
+}
+
+.from_conten-item {
+    margin-top: 30px;
+    padding: 0 42px 10px 26px;
+}
+
+.from_conten-item1 {
+    padding: 0 42px 58px 26px;
+    border-bottom: 1px solid #ccc;
+}
+
+.from_conten-item label {
+    color: #3d3c3c;
+    font-weight: 400;
+}
+
+.from_conten-item input {
+    width: 100%;
+    padding: 10px 8px;
+    margin-top: 10px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.from_conten-item select {
+    padding: 8px ;
+    outline: none;
+    border: none;
+    border: 1px solid #ccc;
+    margin-top:10px;
+    border-radius: 5px;
+}
+
+.from_conten-item textarea {
+    width: 100%;
+    margin-top:10px;
+    border:none;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.from_conten-item input:focus,
+.from_conten-item select:focus,
+.from_conten-item textarea:focus {
+    border: 1px solid #3699FF;
+}
+
+.hihi {
+    padding: 3px;
+}
+
+.from__btn {
+    margin: 30px 26px 0 26px;
+    
+}
+
+.btn {
+    padding: 8px 15px;
+    color: #FFF;
+    outline:  none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn_primary {
+    color: #FFFFFF;
+    background-color: #3699FF;
+    border-color: #3699FF;
+}
+
+.btn_primary:hover {
+    background-color: #0b7cf1;
+}
+
+.btn_sam {
+    color: #3F4254;
+    background-color: #E4E6EF;
+    border-color: #E4E6EF;
+}
+
+.btn_sam:hover {
+    background-color: #c9cad1;
+}
+
+.btn_nhat {
+    color: #B5B5C3;
+    background-color: #F3F6F9;
+    border-color: #F3F6F9;
+}
+
+.btn_nhat:hover {
+    background-color: #dce0e4;
+}
+
+.thongbao {
+    padding : 5px 26px;
+}
+
+/* Quản lý dnah mục */
+ .from_flex {
+    display: flex;
+    align-items:center ;
+    justify-content:space-between;
+    margin: 0 24px 0 0;
+ }
+
+ 
+
+
+.from_table h2{
+    background-color: #FFF;
+    font-size: 20px;
+    color: #565454;
+    font-weight: 600;
+    padding: 26px 0 0 26px;
+    line-height: 11px;
+}
+
+.from_table p {
+    color: #B5B5C3 !important;
+    font-size: 14px;
+    padding: 0 0 0 26px;
+    line-height: 11px;
+}
+
+.btn--s {
+    padding: 18px 16px;
+    color: #FFF;
+    outline:  none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.from_table-content {
+    display: inline-block;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.from_trangchu {
+    height: 200px
+}
+
+.from_trangchu p {
+    color: #000;
+    font-weight: 300;
+    text-align: center;     
+}
+
+.cangiua {
+    text-align: center;
+}
+
+.mau1 {
+    background-color: #71be24;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+    color: #fff;
+    border: none;
+    outline: none;
+    border: 1px solid #71be24;
+    margin-right: 3px;
+}
+
+.mau1:hover {
+    background-color: #7aec08;
+}
+.mau2:hover,
+.mau3:hover {
+    background-color:#ef3307;
+}
+.mau2{
+    background-color: #ff623d;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+    color: #fff;
+    border: none;
+    outline: none;
+    border: 1px solid #ff623d;
+}
+
+.mau3{
+    margin-top:3px;
+    background-color: #ff623d;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+    color: #fff;
+    border: none;
+    outline: none;
+    border: 1px solid #ff623d;
+}

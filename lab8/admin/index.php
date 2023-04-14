@@ -189,6 +189,17 @@ include "header.php";
                                     $listtaikhoan = loadall_taikhoan();
                                     include "taikhoan/list.php";
                                     break;
+
+                                    case 'thongke':
+
+                                        $listthongke = loadall_thongke();
+                                        include "thongke/list.php";
+                                        break;
+                                    case 'bieudo':
+            
+                                        $listthongke = loadall_thongke();
+                                        include "thongke/bieudo.php";
+                                        break;
                 
                 default:
                 include "home.php";

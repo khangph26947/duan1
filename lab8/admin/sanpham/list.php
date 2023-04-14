@@ -1,11 +1,22 @@
-<div class="row ">
 
-    <div class="row formtitle mb">
-        <h1>DANH SÁCH LOẠI HÀNG HÓA</h1>
-    </div>
-    <form action="index.php?act=listsp" method="post">
 
-        <input type="text" name="kyw" id="">
+<div class="row1 form__list">
+      <div class="from">
+          <h2>Quản Lý sản phẩm</h2>
+      </div>
+    <div class="from_list">
+            <div class="from_flex">
+                <div class="from_table">
+                    <h2>Danh sách sản phẩm</h2>
+                    <p>Danh sách các sản phẩm có trên hệ thống</p>
+                </div>
+                <div class="from_table--btn">
+                     <a href="index.php?act=addsp"><input class="btn--s btn_primary" type="button" value="NHẬP THÊM"></a> 
+                </div>
+            </div>
+            <form action="index.php?act=listsp" method="post">
+
+    <input type="text" name="kyw" id="">
         <select name="iddm">
             <option value="0" selected>Tat Ca</option>
             <?php
@@ -16,24 +27,19 @@
             ?>
 
         </select>
-        <input type="submit" name="listok" value="Go">
+    <input type="submit" name="listok" value="Go">
     </form>
-
-    <div class="row formcontent">
-
-        <div class="row mb10 formdsloai">
-
-
-            <table class="row magin">
-                <tr>
-                    <th></th>
-                    <th>Mã Loại</th>
-                    <th>Tên Sản Phẩm</th>
-                    <th>Hình</th>
-                    <th>Giá</th> 
-                    <th></th>
-                </tr>
-                <?php
+            <div class="from_table-content">
+                <table>
+                    <tr>
+                        <th class=bluan></th>
+                        <th class=bluan>Mã Loại</th>
+                        <th class=bluan>Tên Sản Phẩm</th>
+                        <th class=bluan>Hình</th>
+                        <th class=bluan>Giá</th> 
+                        <th class=bluan>Hành động</th>
+                    </tr>
+                    <?php
                 foreach ($listsanpham as $sanpham) {
                     extract($sanpham);
                     $suasp = "index.php?act=suasp&id=" . $id;
@@ -47,29 +53,21 @@
 
                     echo '
                        <tr>
-                       <td><input type="checkbox"></td>
-                       <td>' . $id . '</td>
-                       <td>' . $name . '</td>
-                       <td>' . $hinh . '</td>
-                       <td>' . $price . '</td>
+                       <td class="bluan2"><input type="checkbox"></td>
+                       <td class="bluan2">' . $id . '</td>
+                       <td class="bluan2">' . $name . '</td>
+                       <td class="bluan2">' . $hinh . '</td>
+                       <td class="bluan2">' . $price . '</td>
                    
-                       <td> 
-                       <a href="' . $suasp . '"><input type="button" value="sửa"></a>
+                       <td class="bluan1"> 
+                       <a href="' . $suasp . '"><input class="mau1" type="button" value="sửa"></a>
 
-                           <a href="' . $xoasp . '"><input type="button" value="xóa"></a>
+                           <a href="' . $xoasp . '"><input class="mau2" type="button" value="xóa"></a>
                        
                        </td>
                    </tr>';
                 }
                 ?>
-            </table>
-        </div>
-
-        <div class="row mb10">
-            <input type="button" value="CHỌN TẤT CẢ">
-            <input type="button" value="BỎ CHỌN TẤT CẢ">
-            <input type="button" value="XÓA CÁC MỤC ĐÃ CHỌN">
-            <a href="index.php?act=addsp"><input type="button" value="NHẬP THÊM"></a>
-        </div>
+                </table>
+            </div>
     </div>
-</div>

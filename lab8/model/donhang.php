@@ -43,6 +43,21 @@ function loadall_bill($kyw=""){
     $listbill=pdo_query($sql);
     return $listbill;
 }
+function loadall_cart( $kyw="", $iddh=0){
+    $sql="select*from card where 1";
+    if($kyw!=""){
+        // tìm theo tên 
+        $sql.=" and tensp like '%".$kyw."%'";
+    }
+
+    if($iddh>0){
+        $sql.=" and iddh like '%".$iddh."%'";
+    }
+
+    $sql.=" order by id desc";
+    $listcard=pdo_query($sql);
+    return $listcard;
+}
 function getbilladmin($id){
     $conn = connectdb();
     $stmt = $conn->prepare("SELECT * FROM orderby where id=".$id);
@@ -87,6 +102,12 @@ function xoadonhang(){
     return $listdh;
 }
 
+function update_status_dh($id,$status){
+    $sql="update orderby set status='".$status."'where id=".$id;
+     pdo_execute($sql);
+ }
+
+
 // function get_ttdh($n){
 //     switch ($n) {
 //         case '1':
@@ -117,6 +138,13 @@ function xoadonhang(){
 //     $kq=$stmt->fetchAll();
 //     return $kq;
 // }
+function loadall_thongke(){
+    $sql="select danhmuc.id as madm, danhmuc.name as tendm, count(sanpham.id) as countsp, min(sanpham.price) as minprice, max(sanpham.price) as maxprice, avg(sanpham.price) as avgprice";
+    $sql.=" from sanpham left join danhmuc on danhmuc.id=sanpham.iddm";
+    $sql.=" group by danhmuc.id order by danhmuc.id desc";
+    $listtk = pdo_query($sql);
+    return $listtk;
+}
 
 
 ?>

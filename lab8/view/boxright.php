@@ -37,7 +37,7 @@
                     </div>
                     <!-- // preference -->
                     <!-- discounts -->
-                    <div class="left-side">
+                    <!-- <div class="left-side">
                         <h3 class="sear-head">Sale</h3>
                         <ul class="w3layouts-box-list">
                             <li>
@@ -65,10 +65,10 @@
                                 <span class="span">60% or More</span>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                     <!-- //discounts -->
                     <!-- reviews -->
-                    <div class="customer-rev left-side my-4">
+                    <!-- <div class="customer-rev left-side my-4">
                         <h3 class="sear-head">Customer Review</h3>
                         <ul class="w3layouts-box-list">
                             <li>
@@ -122,7 +122,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                     <!-- //reviews -->
                     <!-- deals -->
                     <div class="deal-leftmk left-side">

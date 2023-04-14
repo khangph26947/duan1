@@ -6,30 +6,36 @@ if(is_array($dm)){
 ?>
 
 
-<div class="row">
-            <div class="row formtitle"><h1>CẬP NHẬT LOẠI HÀNG HÓA</h1></div>
-            <div class="row formcontent">
+
+
+    <div class="row1 form__list">
+      <div class="from">
+          <h2>Cập nhật danh mục sản phẩm</h2>
+      </div>
+      <div class="from_list1">
                 <form action="index.php?act=updatedm" method="post">
-                  <div class="row mb10">
-                    Mã loại <br>
-                    <input type="text" name="maloai" disabled >
-                  </div>  
-                  <div class="row mb10">
-                    Tên loại <br>
-                    <input type="text" name="tenloai" value="<?php if(isset($name)&&($name!="")) echo $name ; ?>" >
-                </div>
-                
-                <div class="row mb10">
-                <input type="hidden" name="id" value="<?php if(isset($id)&&($id>0)) echo $id ; ?>">
-                    <input type="submit" name="capnhat" value="CẬP NHẬT">
-                    <input type="reset" value="NHẬP LẠI">
-                   <a href="index.php?act=listdm"><input type="button" value="DANH SÁCH"></a> 
-                </div>
-                <?php 
-                if(isset($thongbao)&&($thongbao!=""))
-                echo $thongbao;
-                ?>
-                </form>
-            </div>
-        </div>
-    </div>
+                    <div class="from_conten">
+                        <h2>Form thêm thông tin danh mục sản phẩm mới</h2>
+                        <div class="from_conten-item">
+                            <label for="">Mã loại</label><br>
+                            <input type="text" name="maloai" disabled>
+                        </div>
+                        <div class="from_conten-item">
+                            <label for="">Tên danh mục</label><br>
+                            <input type="text" name="tenloai" value="<?php if(isset($name)&&($name!="")) echo $name ; ?>">
+                        </div>
+                    </div>
+                    <div class="from__btn">
+                    <input class="btn btn_primary" type="hidden" name="id" value="<?php if(isset($id)&&($id>0)) echo $id ; ?>">
+                              <input class="btn btn_primary" name="capnhat" type="submit" value="Chỉnh sửa">
+                            <a href="index.php?act=listdm"><input class="btn btn_nhat" type="button" value="DANH SÁCH"></a> 
+                    </div>
+                    <div class="thongbao">
+                      <?php 
+                              if(isset($thongbao)&&($thongbao!=""))
+                              echo $thongbao;
+                              ?>
+                  </form>
+                    </div>
+      </div>
+</div>
